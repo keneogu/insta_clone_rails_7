@@ -26,6 +26,7 @@
       <% if invalid %>
         <%= post.errors.full_messages_for(:keywords).join(" ,")%>
       <% end %>
+      <%= form.file_field :images, multiple:true %>
     </div>
 
     <div>
