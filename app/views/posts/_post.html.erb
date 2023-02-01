@@ -14,10 +14,16 @@
     <%= post.user.email %>
   </p>
   <p>
-    <%= link_to "", post, class: "post-link" %>
+    <%= link_to "", post, class: "post-link", style:"z-index:" %>
   </p>
 
   <% post.images.each do |image| %>
-    <%= image_tag(image, style: "object-fit: cover; width: 200px; height: 600px;") %>
+    <%= image_tag(image, style: "object-fit: contain; max-width: 50%; height: auto;") %>
   <% end %>
+  <p>
+  <%= post.title %>
+  </p>
 </div>
+<p>
+  <%= link_to post.user.email, post.user, style:"z-index:"%>
+</p>
