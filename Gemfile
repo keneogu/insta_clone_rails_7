@@ -44,6 +44,7 @@ gem "bootsnap", require: false
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
