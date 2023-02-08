@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_one_attached :avatar
   before_create :randomize_id
 
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).destroy_all
+  end
+
   private
 	
   def randomize_id
