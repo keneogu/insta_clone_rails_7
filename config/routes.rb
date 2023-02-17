@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
   # Defines the root path route ("/")
   root "posts#index"
   get 'profiles/index'

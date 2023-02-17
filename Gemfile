@@ -48,6 +48,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 gem 'pagy'
+gem 'active_analytics'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
