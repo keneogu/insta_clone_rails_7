@@ -1,13 +1,21 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: %i[ show edit update destroy ]
+  include Pagy::Backend
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(:created_at => :asc)
+    @pagy, @posts = pagy_countless(@posts, items: 1)
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    @comment = @post.comments.build
+  end
+
+  def myposts
+    @posts = Post.all
   end
 
   # GET /posts/new
@@ -65,6 +73,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description, :keywords)
+      params.require(:post).permit(:title, :description, :keywords, :user_id, images: [])
     end
 end
